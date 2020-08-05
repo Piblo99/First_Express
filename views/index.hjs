@@ -21,6 +21,12 @@
                     {{/cuteness}}             
             {{/profiles}}
         </ol>
+
+        <form method="post" action="/join">
+            <input type="text" name="name" placeholder="Name"><br />
+            <input type="text" name="cuteness" placeholder="cuteness"><br />
+            <input type="submit" value="Add Profile">
+        </form>
     </div>
 </body>
 </html>

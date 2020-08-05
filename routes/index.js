@@ -14,6 +14,14 @@ router.get('/', (req, res, next) => {
     res.render('index', data)
 })
 
+router.post('/join', (req, res, next) => {
+    const body = req.body
+    
+    res.json({
+        data: body
+    })
+})
+
 router.get('/json', (req, res, next) => {
     const data = {name:'Smelly', location:'Albaturkey'}
     res.json(data);
