@@ -4,7 +4,7 @@ const router = express.Router()
 router.get('/', (req, res, next) => {
     const data = {
         name: 'Index',
-        date: 'Aug 4 2020',
+        date: 'Aug 5 2020',
         profiles: [
             {name: 'Smelly', pic: '/images/smelly.png', cuteness: 10},
             {name: 'Yasmeen', pic: '/images/yas.png', cuteness: 10},
