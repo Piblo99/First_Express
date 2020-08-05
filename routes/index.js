@@ -1,25 +1,25 @@
 const express = require('express')
 const router = express.Router()
 
+const profiles = [
+    {name: 'Smelly', pic: '/images/smelly.png', cuteness: 10},
+    {name: 'Yasmeen', pic: '/images/yas.png', cuteness: 10},
+    {name: 'Elmo', pic: '/images/Elmo.png'}
+]
+
 router.get('/', (req, res, next) => {
     const data = {
         name: 'Index',
         date: 'Aug 5 2020',
-        profiles: [
-            {name: 'Smelly', pic: '/images/smelly.png', cuteness: 10},
-            {name: 'Yasmeen', pic: '/images/yas.png', cuteness: 10},
-            {name: 'Elmo', pic: '/images/Elmo.png'}
-        ]
+        profiles: profiles
     }
     res.render('index', data)
 })
 
 router.post('/join', (req, res, next) => {
     const body = req.body
-    
-    res.json({
-        data: body
-    })
+    profiles.push(body)
+    res.redirect('/')
 })
 
 router.get('/json', (req, res, next) => {
