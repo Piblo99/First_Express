@@ -12,6 +12,10 @@
     <div class="container">
         <h1>This is the {{name}} Template!</h1>
         <p>Today is {{date}}.</p>
+        {{#user}}
+        My name is {{user.username}}
+        {{/user}}
+        
         <ol>
             {{#profiles}}
                 <li>{{name}} </li>

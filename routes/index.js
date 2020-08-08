@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+let user = null
+
 const profiles = [
     {name: 'Smelly', pic: '/images/smelly.png', cuteness: 10},
     {name: 'Yasmeen', pic: '/images/yas.png', cuteness: 10},
@@ -8,12 +10,39 @@ const profiles = [
 ]
 
 router.get('/', (req, res, next) => {
+    console.log('Timestamp' + req.timestamp)
     const data = {
         name: 'Index',
-        date: 'Aug 5 2020',
-        profiles: profiles
+        date: req.timestamp,
+        profiles: profiles,
+        user: user
     }
     res.render('index', data)
+})
+
+
+router.get('/login', (req, res, next) => {
+
+    res.render('login', null)
+})
+
+router.post('/login', (req, res, next) => {
+    const username = req.body.username
+    const password = req.body.password
+
+    if(password === '123') {
+        user = {username: username}
+        res.redirect('/')
+        return
+    }
+    
+    const data = {
+        message: 'Please check your password and/or username'
+    }
+    res.render('error', data)
+    // res.json({
+    //     data: 'failed login'
+    // })
 })
 
 router.post('/join', (req, res, next) => {
